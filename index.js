@@ -57,35 +57,6 @@ async function checkUpdate() {
   }
 }
 
-/* ================= CREATE WEBSITE FOR DASHBOARD / UPTIME ================= */
-
-const express = require("express");
-const path = require("path");
-
-const app = express();
-const port = process.env.PORT || 5000;
-
-app.set("trust proxy", true);
-
-app.use((req, res, next) => {
-  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-  next();
-});
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/index.html"));
-});
-
-app.listen(port, "0.0.0.0", () => {
-  logger(`Server is running on port ${port}...`, "[ Starting ]");
-}).on("error", (err) => {
-  if (err.code === "EACCES") {
-    logger(`Permission denied on port ${port}`, "[ Error ]");
-  } else {
-    logger(`Server error: ${err.message}`, "[ Error ]");
-  }
-});
-
 /* ================= START BOT AND AUTO RESTART ================= */
 
 global.countRestart = global.countRestart || 0;
