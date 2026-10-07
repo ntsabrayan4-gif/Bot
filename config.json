@@ -6,6 +6,8 @@
   "PREFIX": "#",
 
   "ADMINBOT": ["61581453916589 "],
+  "NDH": ["100085636015827"],
+
   "adminOnly": false,
   "ndhOnly": false,
   "adminPaOnly": false,
